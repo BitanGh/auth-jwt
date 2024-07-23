@@ -1,8 +1,9 @@
 const express = require ("express")
 const mongoose = require("mongoose")
+const dotenv = require("dotenv");
 const app = express()
 app.use(express.json());
-mongoose.connect("mongodb+srv://bitanghosh:bitan12345@cluster0.v901xgk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect(process.env.MONGODB_URL);
 const User = mongoose.model("user",{
   name : String,
   email : String,
